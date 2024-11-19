@@ -11,6 +11,6 @@
 #
 # Check assigned GPU
 srun --ntasks=1 rocm-smi
-srun --ntasks=1 rocminfo
+# srun --ntasks=1 rocminfo
 #
 srun --ntasks=1 --cpus-per-task=1 ./a.out
