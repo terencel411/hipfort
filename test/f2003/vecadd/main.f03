@@ -33,6 +33,8 @@ program fortran_hip
   call hipCheck(hipGetDeviceProperties(props,0))  
   write(*,"(a)",advance="no") "-- Running test 'vecadd' (Fortran 2003 interfaces)"
   write(*,"(a)",advance="no") "- device: "
+  write(*,"(a)",advance="no") props%name
+  
   i=1
   do while ( iachar(props%name(i)) .ne. 0 ) ! print till end char
     write(*,"(a)",advance="no") props%name(i)
@@ -73,7 +75,7 @@ program fortran_hip
         call exit
      endif
   end do
-
+  
   call hipCheck(hipFree(da))
   call hipCheck(hipFree(db))
   call hipCheck(hipFree(dout))
@@ -83,6 +85,6 @@ program fortran_hip
   deallocate(b)
   deallocate(out)
 
-  write(*,*) "PASSED!"
+  write(*,*) "EXAMPLE CASE PASSED!"
 
 end program fortran_hip

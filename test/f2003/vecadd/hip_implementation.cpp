@@ -1,4 +1,5 @@
 #include <hip/hip_runtime.h>
+#include <hip/hip_runtime.h>
 #include <cstdio>
 
 __global__ void vector_add(double *out, double *a, double *b, int n)
