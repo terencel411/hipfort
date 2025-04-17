@@ -1,4 +1,5 @@
 #include <hip/hip_runtime.h>
+#include <hip/hip_runtime.h>
 #include <cstdio>
 
 __global__ void vector_add(double *out, double *a, double *b, int n)
@@ -7,7 +8,7 @@ __global__ void vector_add(double *out, double *a, double *b, int n)
   size_t stride = blockDim.x * gridDim.x;
 
   for (size_t i = index; i < n; i += stride)
-    out[i] = a[i] + b[i] + 1;
+    out[i] = a[i] + b[i];
 }
 
 
